@@ -16,7 +16,36 @@ class BytebankApp extends StatelessWidget {
 class TransferForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(title: Text('Creating a Transfer'),),
+      body: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+            style: TextStyle(
+              fontSize: 24.0
+            ),
+            decoration: InputDecoration(
+              labelText: 'Account Number',
+              hintText: '0000'
+            ),
+            keyboardType: TextInputType.number,
+          ),
+          // TextField(), // ***************************************
+          ),
+          ElevatedButton(
+  onPressed: (){},
+  child: Text('Button'),
+  style: ElevatedButton.styleFrom(
+  shadowColor: Colors.green,
+  shape: RoundedRectangleBorder(
+  borderRadius: BorderRadius.circular(12),
+      ),
+   ),
+),
+        ],
+      ));
   }
 }
 
