@@ -1,30 +1,46 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
+void main() => runApp(BytebankApp());
+
+class BytebankApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       home: Scaffold(
-        body: TransferList(),
-        appBar: AppBar(
-          title: Text("Transfers"),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            // Add your onPressed code here!
-          },
-          backgroundColor: Color.fromARGB(232, 0, 186, 254),
-          child: const Icon(Icons.add),
-        ),
+        body: TransferForm(),
       ),
-    ));
+    );
+  }
+}
+
+class TransferForm extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
 
 class TransferList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        TransferItem(Transfer(100.0, 10)),
-        TransferItem(Transfer(250.0, 20)),
-        TransferItem(Transfer(345.0, 30)),
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Transfers"),
+      ),
+      body: Column(
+        children: <Widget>[
+          TransferItem(Transfer(100.0, 10)),
+          TransferItem(Transfer(250.0, 20)),
+          TransferItem(Transfer(345.0, 30)),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        backgroundColor: Color.fromARGB(232, 0, 186, 254),
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
