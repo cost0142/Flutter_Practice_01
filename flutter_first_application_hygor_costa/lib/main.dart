@@ -15,7 +15,6 @@ class BytebankApp extends StatelessWidget {
     );
   }
 }
-
 class TransferForm extends StatelessWidget {
   final TextEditingController _controllerTypeAccount = TextEditingController();
   final TextEditingController _controllerTypeValue = TextEditingController();
@@ -60,17 +59,17 @@ class TransferForm extends StatelessWidget {
               child: Text('Confirm'),
               onPressed: () {
                 debugPrint('Clicked');
-                // final int accountnumber =
-                //     int.tryParse(_controllerTypeAccount.text);
-                // final double value = 
-                //     double.tryParse(_controllerTypeValue.text);
+                final int? accountnumber =
+                    int.tryParse(_controllerTypeAccount.text);
+                final double? value = 
+                    double.tryParse(_controllerTypeValue.text);
 
 // Checkers
-                // if (accountnumber != null && value != null) {
-                //   final transferCreated = Transfer(value, accountnumber);
-                //   debugPrint('$transferCreated');
-                // }
-             },
+                if (accountnumber != null && value != null) {
+                  final transferCreated = Transfer(value, accountnumber);
+                  debugPrint('$transferCreated');
+                }
+            },
             ),
           ],
         ));
@@ -100,7 +99,6 @@ class TransferList extends StatelessWidget {
     );
   }
 }
-
 class TransferItem extends StatelessWidget {
   final Transfer _transfer;
 
@@ -116,7 +114,6 @@ class TransferItem extends StatelessWidget {
     ));
   }
 }
-
 class Transfer {
   final double value;
   final int accountNumber;
