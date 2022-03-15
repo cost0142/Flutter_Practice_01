@@ -14,38 +14,55 @@ class BytebankApp extends StatelessWidget {
 }
 
 class TransferForm extends StatelessWidget {
+  final TextEditingController _controllerTypeAccount = TextEditingController();
+  final TextEditingController _controllerTypeValue = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Creating a Transfer'),),
-      body: Column(
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-            style: TextStyle(
-              fontSize: 24.0
+        appBar: AppBar(
+          title: Text('Creating a Transfer'),
+        ),
+        body: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: TextField(
+                controller: _controllerTypeAccount,
+                style: TextStyle(fontSize: 24.0),
+                decoration: InputDecoration(
+                    labelText: 'Account Number', hintText: '0000'),
+                keyboardType: TextInputType.number,
+              ),
             ),
-            decoration: InputDecoration(
-              labelText: 'Account Number',
-              hintText: '0000'
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: TextField(
+                controller: _controllerTypeValue,
+                style: TextStyle(fontSize: 24.0),
+                decoration: InputDecoration(
+                    icon: Icon(Icons.monetization_on),
+                    labelText: 'Value',
+                    hintText: '0.00'),
+                keyboardType: TextInputType.number,
+              ),
             ),
-            keyboardType: TextInputType.number,
-          ),
-          // TextField(), // ***************************************
-          ),
-          ElevatedButton(
-  onPressed: (){},
-  child: Text('Button'),
-  style: ElevatedButton.styleFrom(
-  shadowColor: Colors.green,
-  shape: RoundedRectangleBorder(
-  borderRadius: BorderRadius.circular(12),
-      ),
-   ),
-),
-        ],
-      ));
+            ElevatedButton(
+              child: Text('Confirm'),
+              onPressed: () {
+                debugPrint('clicou');
+                debugPrint(_controllerTypeAccount.text);
+                debugPrint(_controllerTypeValue.text);
+              },
+              style: ElevatedButton.styleFrom(
+                shadowColor: Colors.green,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+            ),
+          ],
+        ));
   }
 }
 
