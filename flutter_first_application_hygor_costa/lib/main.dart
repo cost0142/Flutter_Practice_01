@@ -1,3 +1,6 @@
+//by Hygor_Costa
+// Flutter
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(BytebankApp());
@@ -48,24 +51,31 @@ class TransferForm extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              child: Text('Confirm'),
-              onPressed: () {
-                debugPrint('clicou');
-                debugPrint(_controllerTypeAccount.text);
-                debugPrint(_controllerTypeValue.text);
-              },
               style: ElevatedButton.styleFrom(
                 shadowColor: Colors.green,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
               ),
+              child: Text('Confirm'),
+              onPressed: () {
+                debugPrint('Clicked');
+                // final int accountnumber =
+                //     int.tryParse(_controllerTypeAccount.text);
+                // final double value = 
+                //     double.tryParse(_controllerTypeValue.text);
+
+// Checkers
+                // if (accountnumber != null && value != null) {
+                //   final transferCreated = Transfer(value, accountnumber);
+                //   debugPrint('$transferCreated');
+                // }
+             },
             ),
           ],
         ));
   }
 }
-
 class TransferList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -102,14 +112,19 @@ class TransferItem extends StatelessWidget {
         child: ListTile(
       leading: Icon(Icons.monetization_on),
       title: Text(_transfer.value.toString()),
-      subtitle: Text(_transfer.numberAccount.toString()),
+      subtitle: Text(_transfer.accountNumber.toString()),
     ));
   }
 }
 
 class Transfer {
   final double value;
-  final int numberAccount;
+  final int accountNumber;
 
-  Transfer(this.value, this.numberAccount);
+  Transfer(this.value, this.accountNumber);
+
+  @override
+    String toString() {
+        return 'Transfer{value: $value, accountNumber: $accountNumber}';
+    }
 }
