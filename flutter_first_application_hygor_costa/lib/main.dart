@@ -27,6 +27,10 @@ class TransferForm extends StatelessWidget {
         ),
         body: Column(
           children: <Widget>[
+            //  Image(
+            //     fit: BoxFit.contain,
+            //     image: AssetImage('images/transfImg.png'),
+            //   ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
@@ -59,7 +63,7 @@ class TransferForm extends StatelessWidget {
               child: Text('Confirm'),
               onPressed: () {
                 debugPrint('Clicked');
-                final int? accountnumber =
+                final int accountnumber =
                     int.tryParse(_controllerTypeAccount.text);
                 final double? value = 
                     double.tryParse(_controllerTypeValue.text);
